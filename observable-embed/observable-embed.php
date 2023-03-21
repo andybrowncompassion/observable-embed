@@ -16,7 +16,7 @@
  * Plugin Name:       Observable Embed
  * Plugin URI:        https://github.com/andybrowncompassion/Observable-Embed
  * Description:       This plugin facilitates embedded data visualizations from Oberservable
- * Version:           1.0.0
+ * Version:           0.1.0
  * Author:            Andy Brown
  * Author URI:        http://andybrown.media
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'OBSERVABLE_EMBED_VERSION', '1.0.0' );
+define( 'OBSERVABLE_EMBED_VERSION', '0.1.0' );
 
 /**
  * The code that runs during plugin activation.
