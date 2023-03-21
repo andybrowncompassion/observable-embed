@@ -16,7 +16,7 @@
  * Plugin Name:       Observable Embed
  * Plugin URI:        https://github.com/andybrowncompassion/Observable-Embed
  * Description:       This plugin facilitates embedded data visualizations from Oberservable
- * Version:           0.1.0
+ * Version:           1.0.0
  * Author:            Andy Brown
  * Author URI:        http://andybrown.media
  * License:           GPL-2.0+
