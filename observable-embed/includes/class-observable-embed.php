@@ -172,7 +172,7 @@ class Observable_Embed {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
+		$this->loader->add_shortcode( 'observable-embed', $plugin_public, 'observable_embed_shortcode' );
 	}
 
 	/**

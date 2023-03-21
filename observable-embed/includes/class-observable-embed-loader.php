@@ -21,7 +21,8 @@
  * @subpackage Observable_Embed/includes
  * @author     Your Name <email@example.com>
  */
-class Observable_Embed_Loader {
+class Observable_Embed_Loader
+{
 
 	/**
 	 * The array of actions registered with WordPress.
@@ -42,15 +43,25 @@ class Observable_Embed_Loader {
 	protected $filters;
 
 	/**
+	 * The array of shortcodes registered with WordPress.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      array    $shortcodes    The shortcodes registered with WordPress to fire when the plugin loads.
+	 */
+	protected $shortcodes;
+
+	/**
 	 * Initialize the collections used to maintain the actions and filters.
 	 *
 	 * @since    1.0.0
 	 */
-	public function __construct() {
+	public function __construct()
+	{
 
 		$this->actions = array();
 		$this->filters = array();
-
+		$this->shortcodes = array();
 	}
 
 	/**
@@ -63,8 +74,9 @@ class Observable_Embed_Loader {
 	 * @param    int                  $priority         Optional. The priority at which the function should be fired. Default is 10.
 	 * @param    int                  $accepted_args    Optional. The number of arguments that should be passed to the $callback. Default is 1.
 	 */
-	public function add_action( $hook, $component, $callback, $priority = 10, $accepted_args = 1 ) {
-		$this->actions = $this->add( $this->actions, $hook, $component, $callback, $priority, $accepted_args );
+	public function add_action($hook, $component, $callback, $priority = 10, $accepted_args = 1)
+	{
+		$this->actions = $this->add($this->actions, $hook, $component, $callback, $priority, $accepted_args);
 	}
 
 	/**
@@ -77,8 +89,9 @@ class Observable_Embed_Loader {
 	 * @param    int                  $priority         Optional. The priority at which the function should be fired. Default is 10.
 	 * @param    int                  $accepted_args    Optional. The number of arguments that should be passed to the $callback. Default is 1
 	 */
-	public function add_filter( $hook, $component, $callback, $priority = 10, $accepted_args = 1 ) {
-		$this->filters = $this->add( $this->filters, $hook, $component, $callback, $priority, $accepted_args );
+	public function add_filter($hook, $component, $callback, $priority = 10, $accepted_args = 1)
+	{
+		$this->filters = $this->add($this->filters, $hook, $component, $callback, $priority, $accepted_args);
 	}
 
 	/**
@@ -95,7 +108,8 @@ class Observable_Embed_Loader {
 	 * @param    int                  $accepted_args    The number of arguments that should be passed to the $callback.
 	 * @return   array                                  The collection of actions and filters registered with WordPress.
 	 */
-	private function add( $hooks, $hook, $component, $callback, $priority, $accepted_args ) {
+	private function add($hooks, $hook, $component, $callback, $priority, $accepted_args)
+	{
 
 		$hooks[] = array(
 			'hook'          => $hook,
@@ -106,7 +120,19 @@ class Observable_Embed_Loader {
 		);
 
 		return $hooks;
+	}
 
+	/**
+	 * Add a new shortcode to the collection to be registered with WordPress
+	 *
+	 * @since     1.0.0
+	 * @param     string        $tag           The name of the new shortcode.
+	 * @param     object        $component      A reference to the instance of the object on which the shortcode is defined.
+	 * @param     string        $callback       The name of the function that defines the shortcode.
+	 */
+	public function add_shortcode($tag, $component, $callback, $priority = 10, $accepted_args = 2)
+	{
+		$this->shortcodes = $this->add($this->shortcodes, $tag, $component, $callback, $priority, $accepted_args);
 	}
 
 	/**
@@ -114,16 +140,19 @@ class Observable_Embed_Loader {
 	 *
 	 * @since    1.0.0
 	 */
-	public function run() {
+	public function run()
+	{
 
-		foreach ( $this->filters as $hook ) {
-			add_filter( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
+		foreach ($this->filters as $hook) {
+			add_filter($hook['hook'], array($hook['component'], $hook['callback']), $hook['priority'], $hook['accepted_args']);
 		}
 
-		foreach ( $this->actions as $hook ) {
-			add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
+		foreach ($this->actions as $hook) {
+			add_action($hook['hook'], array($hook['component'], $hook['callback']), $hook['priority'], $hook['accepted_args']);
 		}
 
+		foreach ($this->shortcodes as $hook) {
+			add_shortcode($hook['hook'], array($hook['component'], $hook['callback']), $hook['priority'], $hook['accepted_args']);
+		}
 	}
-
 }
