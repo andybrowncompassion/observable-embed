@@ -1,15 +1,14 @@
 # A WordPress plugin for embedding Observable notebooks
 
 ## Usage
-[observable-embed notebook='url to notebook.js' cell='optional cell name']
+    [observable-embed notebook='url to notebook.js' cell='optional cell name']
 
-note: this shortcode may be used multiple times on a page/post. Specified cells share a common runtime/library so they can interact. Also implemented responsive width functionality so cells respond to resizing of their containers. Skip the cell attribute to display the entire notebook (named cells only)
+_note: this shortcode may be used multiple times on a page/post. Specified cells share a common runtime/library so they can interact. Also implemented responsive width functionality so cells respond to resizing of their containers. Skip the cell attribute to display the entire notebook (named cells only)_
 
-## Contents
+## Demo
 
+See it in action [here:](https://collectivegroove.band/observable-embed-demo/)
 
-
-## Features
 
 
 ## Installation
@@ -28,16 +27,12 @@ The observable-embed WordPress plugin is licensed under the GPL v2 or later.
 
 A copy of the license is included in the root of the plugin’s directory. The file is named `LICENSE`.
 
-## Important Notes
-
 ### Licensing
 
 The observable-embed WordPress plugin is licensed under the GPL v2 or later; however, if you opt to use third-party code that is not compatible with v2, then you may need to switch to using code that is GPL v3 compatible.
 
-### Includes
 
 # Credits
 
-Plugin boilerplate from DevinVinson/WordPress-Plugin-Boilerplate
+Plugin boilerplate from [DevinVinson/WordPress-Plugin-Boilerplate](https://github.com/devinvinson/WordPress-Plugin-Boilerplate/)
 
-## Documentation, FAQs, and More
