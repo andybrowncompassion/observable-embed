@@ -1,7 +1,6 @@
 
-
-jQuery(window).load(function () {
-    console.log("test");
+document.addEventListener('DOMContentLoaded',function () {
+    console.log("window loaded");
     if (window.observableCells === undefined) return false;
     if (window.observableCells.length == 0) return false;
 
