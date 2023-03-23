@@ -3,7 +3,7 @@
 ## Usage
 [observable-embed notebook='url to notebook.js' cell='optional cell name']
 
-note: this shortcode may be used multiple times on a page/post. Specified cells share a common runtime/library so they can interact. Also implemented responsive width functionality so cells respond to resizing of their containers.
+note: this shortcode may be used multiple times on a page/post. Specified cells share a common runtime/library so they can interact. Also implemented responsive width functionality so cells respond to resizing of their containers. Skip the cell attribute to display the entire notebook (named cells only)
 
 ## Contents
 
@@ -14,7 +14,7 @@ note: this shortcode may be used multiple times on a page/post. Specified cells 
 
 ## Installation
 
-
+Download the entire repository as a zip, then unzip it and upload the observable-embed entire folder into your Wordpress plugins folder. (or zip the observable-embed folder and install it through Wordpress admin interface)
 
 ## License
 
