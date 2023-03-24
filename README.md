@@ -13,7 +13,7 @@ See it in action [here:](https://collectivegroove.band/observable-embed-demo/)
 
 ## Installation
 
-Download the entire repository as a zip, then unzip it and upload the observable-embed entire folder into your Wordpress plugins folder. (or zip the observable-embed folder and install it through Wordpress admin interface)
+Download the entire repository as a zip (green code button on the top right), then install it through Wordpress admin interface by uploading the zip file.
 
 ## License
 
